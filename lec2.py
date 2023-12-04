@@ -25,6 +25,8 @@ system_message = f"""
     Generate 10 test cases with each problem including the samples. \
 """
 
+
+
 user_message = input('Enter your prompt> ')
 
 messages = [
