@@ -10,9 +10,9 @@
 
 3.0 [Resources](#resources)
 
-## **1.0 OpenAI API** {#openai}
+## **1.0 OpenAI API** <a name="openai"></a>
 
-**1.1 Getting started** {#getting-started} 
+**1.1 Getting started** <a name="getting-started"></a> 
 
 Step 1: Sign up for OpenAI API
 
@@ -67,7 +67,7 @@ client.chat.completions.create parameters:
 2. temperature: Set to 0 to make the output more deterministic (less random).
 3. messages: The conversation history is provided as a list of message objects.
 
-**1.2**  **Understanding Message Objects and Roles:** {#message-objects}
+**1.2**  **Understanding Message Objects and Roles:** <a name="message-objects"></a>
 
 **Format of a Message Object** : A message object is a dictionary or JSON-like structure with two key-value pairs: 'role' and 'content'.
 
@@ -100,15 +100,15 @@ messages = [
 ]
 ```
 
-**1.3 First try to make a request to generate a problem.** {#first-try}
+**1.3 First try to make a request to generate a problem.** <a name="first-try"></a>
 
 [**First try**](https://github.com/OsamaX01/Optimizing-OpenAI-aPI/blob/main/try_1.py)
 
-**2.0 Prompt Engineering – Optimizing Responses** {#prompt}
+**2.0 Prompt Engineering – Optimizing Responses** <a name="prompt"></a>
 
 Prompt engineering refers to the practice of carefully crafting input prompts to achieve desired outputs or behaviors from natural language processing (NLP) models, such as those provided by OpenAI, like GPT-3 or GPT-4. The goal is to optimize the model to generate responses that meet specific criteria, adhere to a particular style, or provide contextually relevant information.
 
-**2.1**  **Optimizing The first written code:** {#optimizations}
+**2.1**  **Optimizing The first written code:** <a name="optimizations"></a>
 
 1- Putting the system instructions in one system message gave much better results. [second [try](https://github.com/OsamaX01/Optimizing-OpenAI-aPI/blob/main/try_2.py)].
 
@@ -120,7 +120,7 @@ Prompt engineering refers to the practice of carefully crafting input prompts to
 
 5- Added **Assistant message:** it made the output format more consistent. [sixth [try](https://github.com/OsamaX01/Optimizing-OpenAI-aPI/blob/main/try_6_assistant.py)].
 
-## **3.0 Resources** {#resources}
+## **3.0 Resources** <a name="resources"></a>
 
 OpenAi official documentation:
 
