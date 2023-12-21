@@ -1,3 +1,3 @@
 .env
-notes.txt
+notes*.txt
 out.json
