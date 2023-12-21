@@ -46,16 +46,11 @@ Step 6: Make an API call ( **Chat Completions API** ):
 To make an API call, we will use **Chat Completions** API. This method is used to make an API call for generating chat-based completions.
 
 ```py
-defget\_completion(_messages_,_model_="gpt-3.5-turbo"):
-
+def get_completion(messages, model="gpt-3.5-turbo"):
     response = client.chat.completions.create(
-
-        _model_=model,
-
-        _messages_=messages,
-
-        _temperature_=0,
-
+        model = model,
+        messages = messages,
+        temperature = 0,
     )
 
     return response.choices[0].message.content
