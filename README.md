@@ -38,7 +38,7 @@ import openai
 Step 5: Set Up API Key
 
 ```py
-openai.api\_key  = os.environ['OPENAI\_API\_KEY']
+openai.api_key  = os.environ['OPENAI\_API\_KEY']
 ```
 
 Step 6: Make an API call ( **Chat Completions API** ):
