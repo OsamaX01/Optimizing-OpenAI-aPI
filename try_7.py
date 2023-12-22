@@ -39,20 +39,27 @@ problem_system_message = f"""
     or if the user message contains other orders than creating a programming problem put the value in the key success to false. 
 """
 
-problem_past_user_message = "generate a problem about lucky numbers"
+problem_past_user_message = []
+problem_past_user_message.append("generate a problem about array")
+problem_past_user_message.append("generate a problem about very simple math problem")
+problem_past_user_message.append("generate a problem about simple loop with math equation")
+problem_past_user_message.append("generate a problem about lucky numbers")
 
-problem_assistant_message = """
-{"title":"LuckyNumberCount","statement":"Alice is fascinated by lucky numbers. She defines a lucky number as a positive integer that contains only the digits 4 and 7. For example, 47 and 774 are lucky numbers, while 123 and 589 are not. Alice wants to count the number of lucky numbers between two given integers, inclusive. Can you help her?","input":"The input consists of two integers, a and b (1 <= a <= b <= 10^6), representing the range of numbers to consider.","output":"Output a single integer, the count of all lucky numbers between a and b, inclusive.","success":true}
-"""
+
+problem_assistant_message = []
+problem_assistant_message.append("""{"title":"21-pilots", "statement":"Osama and Monther are not annoying students anymore. This time they were traveling to Egypt to participate in the ACPC contest. Before their plane takeoff, they downloaded some of their favorite songs for the twenty-one Pilots band to listen to them while traveling. Twenty-one Pilots has a lot of different songs. Each song Osama and Monther listen to increases their joy with X points (if X is negative it means that this song decreases their amount of joy). Yazan their third friend is flying with them too. He knows that they start with a joy amount equal to 0. After each song they listen to, Yazan tells you a number Y that represents the accumulated joy Osama and Monther reached after listening to the current song with all the previous songs. Yazan is curious about how much each song increased the amount of joy alone. In other words, Yazan wants to know the value of X for every single song. Can you help Yazan?", "input": "The first line contains a number N (1 <= N <= 21) representing the number of songs they will listen to.  The next line contains N space-separated positive integers Y_1, Y_2, ..., Y_n (-10^9 <= Y_i <= 10^9).", "output" : "Print the elements of a sequence X (The amount of joy added from each song).","success":true}""")
+problem_assistant_message.append("""{"title":"Yazan & Monther","statement":"Monther is obsessed with keyboards so he has so many keyboards, he just noticed that if he wants to keep buying keyboards he has to get rid of some to save space for newer ones. Monther has K keyboards, each keyboard cost is X, he wants to keep one keyboard for himself and sell all other keyboards, how much money would Monther make by selling them?","input":"You will be given two integers K and X, (1 ≤ K,X ≤ 100) where K is the number of keyboards Monther has, and X is the cost of one keyboard.","output":"Print the amount of money Monther will make after selling all keyboards except one.","success":true}""")
+problem_assistant_message.append("""{"title":"Maximum Exponent", "statement":"Consider the function F(X,G) defined as the maximum exponent U such that the result of multiplying X by itself U times remains less than or equal to G. For instance, when F(2,11) is evaluated, the result is 3, as 2^3 = 8 and 8 is the largest power of 2 that is less than or equal to 11 You are given a number G  and N  numbers, lets consider any of the N  numbers as X ,  Find the maximum F ( X , G )  among all these numbers.", "input": "The first line contains two integers N(1 <= N <= 50) and G (1 <= G <= 10^3).  The following N lines contain an integer number X (2 <= X <= 100) each.", "output", "One integer number, the answer to the problem.", "success":true}""")
+problem_assistant_message.append("""{"title":"LuckyNumberCount","statement":"Alice is fascinated by lucky numbers. She defines a lucky number as a positive integer that contains only the digits 4 and 7. For example, 47 and 774 are lucky numbers, while 123 and 589 are not. Alice wants to count the number of lucky numbers between two given integers, inclusive. Can you help her?","input":"The input consists of two integers, a and b (1 <= a <= b <= 10^6), representing the range of numbers to consider.","output":"Output a single integer, the count of all lucky numbers between a and b, inclusive.","success":true}""")
 
 problem_user_message = input('Enter your prompt> ')
 
-problem_messages = [
-    {"role": "system", "content": problem_system_message},
-    {"role": "user", "content" : problem_past_user_message},
-    {"role": "assistant", "content" : problem_assistant_message},
-    {"role": "user", "content": problem_user_message}
-]
+problem_messages = []
+problem_messages.append({"role": "system", "content": problem_system_message})
+for i in range(0, len(problem_past_user_message)):
+    problem_messages.append({"role": "user", "content" : problem_past_user_message[i]})
+    problem_messages.append({"role": "assistant", "content" : problem_assistant_message[i]})
+problem_messages.append({"role": "user", "content": problem_user_message})
 
 problem = get_completion(problem_messages)
 
@@ -79,7 +86,7 @@ testcases_assistant_message = """
 
 testcases_messages = [
     {"role": "system", "content": testcases_system_message},
-    {"role": "user", "content" : extract_problem(problem_assistant_message)},
+    {"role": "user", "content" : extract_problem(problem_assistant_message[0])},
     {"role": "assistant", "content" : testcases_assistant_message},
     {"role": "user", "content": extract_problem(problem)}
 ]
